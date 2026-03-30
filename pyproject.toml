@@ -1,0 +1,18 @@
+[project]
+name = "financeagent"
+version = "0.0.6"
+readme = "README.md"
+dependencies = [
+    "requests>=2.31.0",
+    "beautifulsoup4>=4.13.0",
+    "cachetools>=6.1.0",
+    "func_timeout>=4.3.0"
+]
+
+[project.urls]
+Homepage = "https://www.deepnlp.org/store/ai-agent"
+Repository = "https://github.com/aiagenta2z/FinanceAgent"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"

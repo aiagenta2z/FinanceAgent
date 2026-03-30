@@ -5,9 +5,35 @@ to help develop Finance related AI Agents workflows. Since getting realtime or n
 we are building a common interface of open API to get public available data from glocal Finance Market (US, Europe, Asia) with multiple finance investment choices such as Stock, Index, Option, etc.
 Getting Realtime Data maybe blocked by website and this repo is not responsible for proxy or any data correctness related issues.
 
+### Agent Skills Usage
+
+```shell
+npm install -g @aiagenta2z/agtm
+npx agtm skills add https://github.com/aiagenta2z/onekey-gateway  ## add all onekey router skills
+npx agtm skills add aiagenta2z/onekey-gateway --skill hk-stock-market-hkex -g  ## install to global path
+```
+
+```shell
+npx skills add https://github.com/aiagenta2z/onekey-gateway  ## add all onekey router skills
+npx skills add aiagenta2z/onekey-gateway --skill hk-stock-market-hkex -g  ## install to global path
+```
 
 
-*** IMPORTANT LEGAL DISCLAIMER ***
+| Skills                                                                                     | API ID                                                                 | Description                                          |
+|--------------------------------------------------------------------------------------------|------------------------------------------------------------------------|------------------------------------------------------|
+| hk-stock-market-hkex [Doc](skills/hk-stock-market-hkex/SKILL.md)                           | get_hk_stock_market_hkex                                               | Get HKEX HongKong Stock Exchange Market data         |
+| cn-stock-market-shanghai-shenzhen [Doc](skills/cn-stock-market-shanghai-shenzhen/SKILL.md) | get_cn_stock_market_shanghai_shenzhen                                  | Get China Stock Market Shanghai and Shenzhen data    |
+| us-stock-market-nyse-nasdaq-dow  [Doc](skills/us-stock-market-nyse-nasdaq-dow/SKILL.md)    | get_us_stock_market_nyse_nasdaq_dow                                    | Get US Stock Market Data and Index NYSE, NASDAQ, DOW |
+| uk-stock-market-lse [Doc](skills/uk-stock-market-lse/SKILL.md)                             | get_uk_stock_market_lse                                                | Get UK Stock Market Data LSE                         |
+| india-stock-market-nse-india  [Doc](skills/india-stock-market-nse-india/SKILL.md)          | get_india_stock_market_nse_india | Get India Stock Market Data NSE India                |
+
+
+```
+Show Tencent Stock Price
+```
+
+
+***IMPORTANT LEGAL DISCLAIMER***
 
 FinanceAgent is not affiliated, endorsed, or vetted by Financial Institutions. It's an open-source tool that uses finance APIs to get realtime finance data to help build 
 AI Agents and Finance Larget Language Models. Please contact the repo owner email if your API or data source need to be removed from the repo.
@@ -31,8 +57,9 @@ AI Agents and Finance Larget Language Models. Please contact the repo owner emai
 pip install FinanceAgent
 ```
 
-
 ## Usage
+
+### Python Usage
 ```
 import FinanceAgent as fa
 
@@ -175,15 +202,46 @@ pe_ratio|
 source|moneycontrol.com,https://www.moneycontrol.comhttps://www.moneycontrol.com/india/stockpricequote/auto-lcvs-hcvs/tatamotors/TM03
 data_source|moneycontrol.com
 -----------------------------------
+```
 
+### API Usage
 
+Get OneKey Gateway [Access Key](https://deepnlp.org/workspace/keys) and [Docs](https://www.deepnlp.org/doc/onekey_gateway).
+
+```shell
+export DEEPNLP_ONEKEY_ROUTER_ACCESS=your_access_key
+
+curl -v -X POST "https://agent.deepnlp.org/agent_router" \
+-H "Content-Type: application/json" \
+-H "X-OneKey: $DEEPNLP_ONEKEY_ROUTER_ACCESS" \
+-d '{
+  "unique_id": "aiagenta2z/financeagent",
+  "api_id": "get_cn_stock_market_shanghai_shenzhen",
+  "data": {
+    "symbol_list": ["SH600519", "SH600036"]
+  }
+}'
 
 ```
 
 
-## Introduction to Available API and Data Source 
-** note: Stock Data Displayed on Page Might not be stable
+### CLI Usage
 
+```shell
+## install onekey agent gateway
+npm install @aiagenta2z/onekey-gateway
+## CLI to Call API and Symbol List
+npx onekey agent aiagenta2z/financeagent get_cn_stock_market_shanghai_shenzhen '{"symbol_list": ["SH600519", "SH600036"]}'
+```
+
+
+### MCP Server Usage
+
+Finance Agent to Get Free API of Global Financial Marketplace. Try MCP Server (https://github.com/AI-Hub-Admin/finance-agent-mcp-server) on the MCP Tool Use Agent (https://agent.deepnlp.org/agent/mcp_tool_use)
+
+
+
+## Introduction to Available API and Data Source 
 
 |  REGION  | MARKET| DATA SOURCE   |  API Example |  Robots Verification  |
 |  ----  | ----  | ----  | ----  | ----  | 
@@ -197,6 +255,15 @@ data_source|moneycontrol.com
 |  Europe  | London (LSE) | stockanalysis.com | https://stockanalysis.com/stocks/shel/ | YES |
 
 
+## Related
+
+### Related Code and Docs
+[OneKey Gateway GitHub](https://github.com/aiagenta2z/onekey-gateway)   
+[OneKey Gateway Doc](https://www.deepnlp.org/doc/onekey_gateway)    
+[Agtm GitHub](https://github.com/aiagenta2z/agtm)     
+[AI Agent Marketplace](https://www.deepnlp.org/store/ai-agent)     
+[MCP Marketplace](https://www.deepnlp.org/store/ai-agent/mcp-server)    
+[Skills Marketplace](https://www.deepnlp.org/store/skills)    
 
 ## Related Blogs
 [Introduction to multimodal generative models](http://www.deepnlp.org/blog/introduction-to-multimodal-generative-models) <br>

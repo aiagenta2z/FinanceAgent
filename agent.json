@@ -1,0 +1,67 @@
+{
+  "name": "FinanceAgent",
+  "content": "The Finance Agent to get stock quote and data information from global stock market",
+  "website": "https://www.deepnlp.org/store/ai-agent/ai-agent/pub-aiagenta2z/financeagent",
+  "field": "AI AGENT",
+  "subfield": "Finance",
+  "content_tag_list": "finance,cli,python",
+  "github": "https://github.com/aiagenta2z/FinanceAgent",
+  "thumbnail_picture": "https://avatars.githubusercontent.com/u/242328252?s=200&v=4",
+  "upload_image_files": "",
+  "price_type": "PER_CALL",
+  "price_per_call_credit": 10.0,
+  "price_fixed_credit": 0.0,
+  "price_subscription": "Basic: your basic plan introduction, Advanced: Your Advanced Plan introduction, etc.",
+  "api_list": [
+    {
+      "api_id": "get_hk_stock_market_hkex",
+      "protocol": "http",
+      "description": "Get HongKong stock Market HKEX data",
+      "endpoint": "https://aiagenta2z.aiagenta2z.com/financeagent/api/v1/get_hk_stock_market_hkex",
+      "method": "GET",
+      "params": {
+        "symbol_list": "array[string]"
+      }
+    },
+    {
+      "api_id": "get_cn_stock_market_shanghai_shenzhen",
+      "protocol": "http",
+      "description": "Get China stock Market Shanghai and Shenzhen data",
+      "endpoint": "https://aiagenta2z.aiagenta2z.com/financeagent/api/v1/get_cn_stock_market_shanghai_shenzhen",
+      "method": "GET",
+      "params": {
+        "symbol_list": "array[string]"
+      }
+    },
+    {
+      "api_id": "get_us_stock_market_nyse_nasdaq_dow",
+      "protocol": "http",
+      "description": "Get US Stock Marketplace: NYSE, NASDAQ, DOW",
+      "endpoint": "https://aiagenta2z.aiagenta2z.com/financeagent/api/v1/get_us_stock_market_nyse_nasdaq_dow",
+      "method": "GET",
+      "params": {
+        "symbol_list": "array[string]"
+      }
+    },
+    {
+      "api_id": "get_uk_stock_market_lse",
+      "protocol": "http",
+      "description": "Get UK Stock Marketplace: LSE",
+      "endpoint": "https://aiagenta2z.aiagenta2z.com/financeagent/api/v1/get_uk_stock_market_lse",
+      "method": "GET",
+      "params": {
+        "symbol_list": "array[string]"
+      }
+    },
+    {
+      "api_id": "get_india_stock_market_nse_india",
+      "protocol": "http",
+      "description": "Get India Stock Marketplace: NSE India",
+      "endpoint": "https://aiagenta2z.aiagenta2z.com/financeagent/api/v1/get_india_stock_market_nse_india",
+      "method": "GET",
+      "params": {
+        "symbol_list": "array[string]"
+      }
+    }
+  ]
+}
